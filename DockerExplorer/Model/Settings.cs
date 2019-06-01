@@ -14,7 +14,7 @@ namespace DockerExplorer.Model
 
    static class Settings
    {
-      private static ISettings _instance;
+      private static readonly ISettings _instance;
 
       static Settings()
       {

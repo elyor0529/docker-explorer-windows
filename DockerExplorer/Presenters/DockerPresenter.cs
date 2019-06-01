@@ -65,8 +65,7 @@ namespace DockerExplorer.Presenters
       {
          IList<ImagesListResponse> responseImages = await Client.Images.ListImagesAsync(new ImagesListParameters { All = true });
          var images = responseImages.SelectMany(DockerImage.CreateMany).ToList();
-
-         List<DockerImage> roots = images.Where(i => string.IsNullOrEmpty(i.ParentId)).ToList();
+         var roots = images.Where(i => string.IsNullOrEmpty(i.ParentId)).ToList();
 
          foreach(DockerImage image in roots)
          {
